@@ -5,7 +5,7 @@ import codecs
 
 
 #filename=
-name_list = ["virus_2020_kaku-ketsumaku-en","virus_2020_te-ashi-kuchi", "virus_2020 - 感染性胃腸炎（ロタウイルス）","virus_2020 - 咽頭結膜熱","virus_2020 - マイコプラズマ肺炎","virus_2020 - RSウイルス","virus_2020 - Ａ群溶血性レンサ球菌咽頭炎"]
+name_list = ["influenza","virus_2020_kaku-ketsumaku-en","virus_2020_te-ashi-kuchi", "virus_2020 - 感染性胃腸炎（ロタウイルス）","virus_2020 - 咽頭結膜熱","virus_2020 - マイコプラズマ肺炎","virus_2020 - RSウイルス","virus_2020 - Ａ群溶血性レンサ球菌咽頭炎", "virus_2020 - 流行性角結膜炎"]
 
 for filename in name_list:
     filename_csv = filename + ".csv"
@@ -15,7 +15,8 @@ for filename in name_list:
     df_raw["year"] =df_raw["Unnamed: 0"]#.str.replace("年","")
     df_raw.reset_index()
     plt.figure(figsize=(12,8))
-    for i in range(11):
+    length_df = len(df_raw)
+    for i in range(2,length_df):
         x=df_raw.columns[1:53]
         y=df_raw.iloc[i,1:53].values #df.iloc[[1,2,4],[0,2]]
         #print(x.shape)
